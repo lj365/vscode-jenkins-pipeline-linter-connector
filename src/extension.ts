@@ -28,6 +28,14 @@ export function activate(context: vscode.ExtensionContext) {
                 token = await vscode.window.showInputBox({ prompt: 'Enter token.', password: false });
             }
         }
+        
+        if (process.env[String(pass)]) {
+            pass=process.env[String(pass)]
+        }
+        if (process.env[String(token)]){
+            token=process.env[String(token)]
+        }
+
         if (url !== undefined && url.length > 0) {
             lastInput = url;
 
